@@ -20,6 +20,7 @@ end
 
 group :production do
 	gem 'pg'
+	gem 'therubyracer', '~> 0.9.3.beta1'
 end
 
 gem 'jquery-rails'
