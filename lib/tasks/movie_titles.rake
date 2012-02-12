@@ -7,6 +7,7 @@ task :fetch_titles => :environment do
 	doc = Nokogiri::HTML(open(url))
 	doc.css(".product").each do |product|
 		title = product.at_css(".title .title").text
+		# Creates the entries
 		Movie.create(:title => title)
 	end
 end
