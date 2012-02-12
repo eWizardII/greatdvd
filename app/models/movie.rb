@@ -5,4 +5,5 @@ class Movie < ActiveRecord::Base
 		else
 			find(:all)
 		end
+	end
 end
