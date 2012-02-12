@@ -2,13 +2,13 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movies.search(params[:search])
-    # @movies = Movie.all
+    @movies = Movie.search(params[:search])
+    #@movies = Movie.all
 
-    # respond_to do |format|
-    #   format.html # index.html.erb
-    #   format.json { render :json => @movies }
-    # end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @movies }
+    end
   end
 
   # GET /movies/1
