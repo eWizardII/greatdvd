@@ -24,7 +24,7 @@
 #   pool: 5
 #   timeout: 5000
 
-develoment:
+development:
   adapter: postgresql
   username: sabiola
   database: goog
