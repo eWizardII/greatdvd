@@ -25,7 +25,8 @@
 #   timeout: 5000
 
 develoment:
-adapter: postgresql
-username: sabiola
-encoding: utf8
-pool: 5
+  adapter: postgresql
+  username: sabiola
+  database: goog
+  encoding: utf8
+  pool: 5
