@@ -29,4 +29,5 @@ development:
   username: sabiola
   database: goog
   encoding: utf8
+  password: alpha1208
   pool: 5
