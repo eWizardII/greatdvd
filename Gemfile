@@ -5,9 +5,9 @@ gem 'nokogiri'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
+ 
 group :development, :test do
-	gem 'sqlite3'
+	gem 'pg'
 end
 
 gem 'heroku'
