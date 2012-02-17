@@ -22,8 +22,6 @@ task :fetch_titles_index => :environment do
 		puts doc.at_css("title").text
 		doc.css("i").each do |movies|
 		  title = movies.text
-		  #Movie.create(:title => title)
-		  #index.document("#{indexnumber}").add({ :text => title })
 		  documents << { :docid => indexnumber, :fields => { :text => title} }
 		  indexnumber += 1
 		end
@@ -44,12 +42,4 @@ task :fetch_titles_index => :environment do
 
 		documents = []
 	end
-
-	# url = "http://en.wikipedia.org/wiki/List_of_films:_A"
-	# doc = Nokogiri::HTML(open(url, 'User-Agent' => 'ruby'))
-	# doc.css("i").each do |movies|
-	#   title = movies.text
-	#   #puts "#{title}"
-	#   Movie.create(:title => title)
-	# end
 end
