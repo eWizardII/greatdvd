@@ -1,32 +1,22 @@
-<h1>Listing movies</h1>
-
-
-<%= form_tag movies_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
-
-<table>
-  <tr>
-    <th>Title</th>
-<!--     <th>Description</th>
-    <th>Image url</th>
-    <th>Price</th> -->
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @movies.each do |movie| %>
-  <tr>
-    <td><%= movie.title %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Movie', new_movie_path %>
-
+<%= form_tag photos_path, :method => :get do %>  
+  <%= text_field_tag :query %>  
+  <button type="submit">Search</button>  
+<% end %>  
+  
+<% if @docs %>  
+  <p id="result-count">Your search for "<%= params[:query] %>" returned <%= pluralize @docs['matches'], 'result' %></p>  
+  
+  <ul id="results">  
+    <% @docs['results'].each do |doc| %>  
+      <li>  
+        <%= link_to "http://plixi.com/p/#{doc['plixi_id']}" do %>  
+          <%= image_tag doc['thumbnail_url'] %>  
+          <%= doc['screen_name'] %> -  
+          <%= time_ago_in_words Time.at(doc['timestamp'].to_i) %> ago  
+  
+          <%= simple_format doc['text'] %>  
+        <% end %>  
+      </li>  
+    <% end %>  
+  </ul>  
+<% end %> 
