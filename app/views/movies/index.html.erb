@@ -1,12 +1,15 @@
-<%= form_tag photos_path, :method => :get do %>  
-  <%= text_field_tag :query %>  
+<h1>Listing movies</h1>
+
+
+<%= form_tag movies_path, :method => :get do %>  
+  <%= text_field_tag :search %>  
   <button type="submit">Search</button>  
 <% end %>  
   
 <% if @docs %>  
-  <p id="result-count">Your search for "<%= params[:query] %>" returned <%= pluralize @docs['matches'], 'result' %></p>  
+  <p id="result-count">Your search for "<%= params[:search] %>" returned <%= pluralize @docs['matches'], 'result' %></p>  
   
-  <ul id="results">  
+<!--   <ul id="results">  
     <% @docs['results'].each do |doc| %>  
       <li>  
         <%= link_to "http://plixi.com/p/#{doc['plixi_id']}" do %>  
@@ -18,5 +21,6 @@
         <% end %>  
       </li>  
     <% end %>  
-  </ul>  
+  </ul>   -->
 <% end %> 
+

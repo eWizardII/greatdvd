@@ -26,5 +26,4 @@ class Movie < ActiveRecord::Base
 	def self.search(search)
 		index.search(search, :fetch => 'text')
 	end
-	end
 end
