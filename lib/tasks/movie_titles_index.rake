@@ -30,7 +30,22 @@ task :fetch_titles_index => :environment do
 		#puts documents
 	end
 
-	index.batch_insert(documents)
+	
+	response = index.batch_insert(documents)
+
+	# Failed document handling
+
+	failures = 0
+
+	failed_documents = []
+	response.each_with_index do |r, i|
+		failed_documents << documents[i] unless r['added']
+		failures += 1
+	end
+
+	puts failed_documents
+
+	puts failures
 
 	# url = "http://en.wikipedia.org/wiki/List_of_films:_A"
 	# doc = Nokogiri::HTML(open(url, 'User-Agent' => 'ruby'))
