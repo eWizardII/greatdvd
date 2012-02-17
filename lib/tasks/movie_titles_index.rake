@@ -1,5 +1,5 @@
 desc "Fetch Movie Titles"
-task :fetch_titles => :environment do
+task :fetch_titles_index => :environment do
 	require 'rubygems'
 	require 'nokogiri'
 	require 'open-uri'
@@ -10,9 +10,12 @@ task :fetch_titles => :environment do
 ')
 	index = client.indexes('idx')
 
-	#characters = ["numbers","A","B","C","D","E","F","G","H","I","J-K","L","M","N-O","P","Q-R","S","T","U-V-W","X-Y-Z"]
+	characters = ["numbers","A","B","C","D","E","F","G","H","I","J-K","L","M","N-O","P","Q-R","S","T","U-V-W","X-Y-Z"]
 
-	characters = ["numbers", "A"]
+	#characters = ["numbers", "A"]
+	indexnumber = 1
+
+	documents = []
 
 	for xxx in 0...1
 		url = "http://en.wikipedia.org/wiki/List_of_films:_#{characters[xxx]}"
@@ -21,8 +24,11 @@ task :fetch_titles => :environment do
 		doc.css("i").each do |movies|
 		  title = movies.text
 		  #Movie.create(:title => title)
-		  index.document("#{indexnumber}").add({ :text => title })
+		  #index.document("#{indexnumber}").add({ :text => title })
+		  documents << { :docid => '#{indexnumber}', :fields => { :text => title} }
+		  indexnumber = indexnumber + 1
 		end
+		index.batch_insert(documents)
 	end
 
 	# url = "http://en.wikipedia.org/wiki/List_of_films:_A"

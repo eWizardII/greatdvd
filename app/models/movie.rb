@@ -1,4 +1,8 @@
 require 'open-uri'
+require 'indextank'
+
+api = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'] ||'http://:fOC8cPwr4O2Wi4@22woj.api.searchify.com')
+index = api.indexes('idx')
 
 # class Movie < ActiveRecord::Base
 # 	def self.search(search)
