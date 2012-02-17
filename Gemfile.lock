@@ -105,6 +105,8 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    tanker (1.1.6)
+      json (>= 1.5.1)
     term-ansicolor (1.0.7)
     therubyracer (0.9.9)
       libv8 (~> 3.3.10)
@@ -130,5 +132,6 @@ DEPENDENCIES
   pg
   rails (= 3.1.2)
   sass-rails (~> 3.1.5.rc.2)
+  tanker
   therubyracer (~> 0.9.3.beta1)
   uglifier (>= 1.0.3)
