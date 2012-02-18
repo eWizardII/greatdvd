@@ -1,77 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Toolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org" />
+  <meta charset="utf-8" />
 
-    <!-- Le styles -->
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <style>
+  <title>Toolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="" />
+  <meta name="author" content="" /><!-- Le styles -->
+  <link href="../assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+/*<![CDATA[*/
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
-    </style>
-    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
+  /*]]>*/
+  </style>
+  <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+  <!-- Le fav and touch icons -->
+  <link rel="shortcut icon" href="images/favicon.ico" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href=
+  "images/apple-touch-icon-114x114.png" />
+</head>
 
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  </head>
+<body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></a>
+        <a class="brand" href="#">Toolio</a>
 
-  <body>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">Toolio</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-            <%= form_tag movies_path, :class => 'navbar-search pull-left', :method => :get do %> 
-              <%= text_field_tag :search, nil, :class => 'search-query', :placeholder => 'Search for Movie Title' %>  
-              <button type="submit" class="btn">Search</button>  
-            <% end %>  
-            <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
-          </div><!--/.nav-collapse -->
-        </div>
+            <li><a href="#about">About</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+          </ul><%= form_tag movies_path, :class => 'navbar-search pull-left', :method => :get do %><%= text_field_tag :search, nil, :class => 'search-query', :placeholder => 'Search for Movie Title' %><button type="submit"
+          class="btn">Search</button> <% end %>
+
+          <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+        </div><!--/.nav-collapse -->
       </div>
     </div>
+  </div>
 
-    <div class="container">
+  <div class="container">
+    <% if @movies %>
 
-      <% if @movies %>  
-        <p id="result-count">About <%= pluralize @movies['matches'], 'result' %> (<%= pluralize @movies['search_time'], 'second' %>)</p>  
-        
-         <ol id="results">  
-          <% @movies['results'].each do |doc| %>  
-            <li>  
-              <%= link_to "www.google.com" do %>
-                <%= simple_format doc['text'] %>  
-              <% end %>  
-            </li>  
-          <% end %>  
-        </ul> 
-      <% end %> 
+    <p id="result-count"><%= pluralize @movies['matches'], 'result' %>
+    (<%= pluralize @movies['search_time'], 'second' %>)</p>
 
-    </div> <!-- /container -->
+    <table class="table table-stripped">
+      <thead>
+        <tr>
+          <th>ID</th>
 
-  </body>
+          <th>Movie Title</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @movies['results'].each do |doc| %>
+
+        <tr>
+          <td><%= simple_format doc['docid'] %></td>
+
+          <td>
+          <%= link_to "www.google.com" do %><%= simple_format doc['text'] %><% end %></td>
+        </tr><% end %>
+      </tbody>
+    </table><% end %>
+  </div><!-- /container -->
+
+  <div class="pagination pagination-centered">
+    <ul>
+      <li><a href="#">Prev</a></li>
+      <li class="active">
+        <a href="#">1</a>
+      </li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">Next</a></li>
+    </ul>
+  </div>  
+
+</body>
 </html>
