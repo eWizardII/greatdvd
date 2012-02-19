@@ -23,7 +23,7 @@ class Movie < ActiveRecord::Base
 	end
 
 	# IndexTank Retrival
-	def self.search(search)
-		index.search(search, :fetch => 'text,docid', :len => '10')
+	def self.search(search, start)
+		index.search(search, :fetch => 'text,docid', :start => start)
 	end
 end
