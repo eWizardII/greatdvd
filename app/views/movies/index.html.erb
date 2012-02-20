@@ -24,15 +24,13 @@
     <div class="navbar-inner">
       <div class="container-fluid">
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></a>
-        <a class="brand" href="#">Toolio</a>
+        <a class="brand" href="">Toolio</a>
 
         <div class="nav-collapse">
           <ul class="nav">
             <li class="active"><a href="#">Home</a></li>
 
             <li><a href="#about">About</a></li>
-
-            <li><a href="#contact">Contact</a></li>
           </ul><%= form_tag movies_path, :class => 'navbar-search pull-left', :method => :get do %><%= text_field_tag :search, nil, :class => 'search-query', :placeholder => 'Search for Movie Title' %><button type="submit"
           class="btn">Search</button> <% end %>
 
@@ -64,7 +62,7 @@
           <td><%= simple_format doc['docid'] %></td>
 
           <td>
-          <%= link_to "www.google.com" do %><%= simple_format doc['text'] %><% end %></td>
+          <%= link_to "http://en.wikipedia.org/wiki/#{doc['text']}" do %><%= simple_format doc['text'] %><% end %></td>
         </tr><% end %>
       </tbody>
     </table><% end %>
@@ -72,7 +70,7 @@
   <% if @movies %>
   <div class="pagination pagination-centered">
     <ul>
-      <li class="active">
+      <li>
         <%= link_to "1", "#{movies_path}?&search=#{@movies['query']}&start=0" %>
       </li>
         <% page = 2 %>
