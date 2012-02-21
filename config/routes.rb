@@ -52,6 +52,8 @@ Thegreatdvd::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'movies#index'
 
+  # Should route to the page with the movies in Heroku
+
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
