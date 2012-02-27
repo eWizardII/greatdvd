@@ -23,6 +23,26 @@ Thegreatdvd::Application.configure do
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
+  # Mailing stuff
+
+  require 'tlsmail'       
+   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)   
+   ActionMailer::Base.delivery_method = :smtp   
+   ActionMailer::Base.perform_deliveries = true   
+   ActionMailer::Base.raise_delivery_errors = true   
+   ActionMailer::Base.smtp_settings = {   
+   :enable_starttls_auto => true,     
+   :address            => 'smtp.gmail.com',   
+   :port               => 587,   
+   :tls                  => true,   
+   :domain             => 'gmail.com',    
+   :authentication     => :plain,   
+   :user_name          => 'thegreatdvd12@gmail.com',   
+   :password           => 'thegreatdvd12' # for security reasons you can use a environment variable too. (ENV['INFO_MAIL_PASS'])   
+   }  
+
+  config.action_mailer.default_url_options = { :host => 'gmail.com' }  
+
   # Specifies the header that your server uses for sending files
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
