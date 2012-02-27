@@ -4,8 +4,8 @@ gem 'rails', '3.1.2'
 gem 'nokogiri'
 gem 'indextank'
 gem 'devise'
-gem "less-rails-bootstrap"
-gem "less-rails-bootstrap-devise", :git => 'git://github.com/bigbento/less-rails-bootstrap-devise.git'
+#gem "less-rails-bootstrap"
+#gem "less-rails-bootstrap-devise", :git => 'git://github.com/bigbento/less-rails-bootstrap-devise.git'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
  
