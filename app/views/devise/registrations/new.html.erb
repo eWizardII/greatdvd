@@ -3,28 +3,25 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :firstname %><br />
-  <%= f.firstname_field :firstname %></div>
+  <%= f.text_field :firstname, :placeholder => 'Firstname' %><br />
 
-  <div><%= f.label :lastname %><br />
-  <%= f.lastname_field :lastname %></div>
+  <%= f.text_field :lastname, :placeholder => 'Lastname' %></div>
  
-  <div><%= f.label :ticket %><br />
-  <%= f.ticket_field :ticket %></div>
+  <div><%= f.label :ticket %>
+  <%= f.radio_button :ticket, 'coach class', :checked => true %> <%= f.label :ticket, 'Coach Class' %></div>
+  <%= f.radio_button :ticket, 'business class', :checked => true %> <%= f.label :ticket, 'Business Class' %></div>
+  <%= f.radio_button :ticket, 'first class', :checked => true %> <%= f.label :ticket, 'First Class' %></div>
  
-  <div><%= f.label :movie %><br />
-  <%= f.movie_field :movie %></div>
-  
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <div><%= f.label :movies %><br />
+  <%= f.select :movies, [['Select Genre','select genre'],['Action','action'],['Comedy','comedy'],['Drama','drama'],['Horror','horror'],['Mystery','mystery'],['Sci-Fi','sci-fi']] %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <%= f.email_field :email, :placeholder => 'great@dvd.com' %><br />
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <%= f.password_field :password, :placeholder => 'Password'%><br />
 
-  <div><%= f.submit "Sign up" %></div>
+  <%= f.password_field :password_confirmation, :placeholder => 'Confirm Password' %></div>
+
+  <div><%= f.submit "Submit" %></div>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
