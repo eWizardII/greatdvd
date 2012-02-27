@@ -25,6 +25,7 @@ Thegreatdvd::Application.configure do
 
   # Mailing stuff
 
+=begin
   require 'tlsmail'       
    Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)   
    ActionMailer::Base.delivery_method = :smtp   
@@ -41,7 +42,8 @@ Thegreatdvd::Application.configure do
    :password           => 'thegreatdvd12' # for security reasons you can use a environment variable too. (ENV['INFO_MAIL_PASS'])   
    }  
 
-  config.action_mailer.default_url_options = { :host => 'gmail.com' }  
+  config.action_mailer.default_url_options = { :host => 'gmail.com' }  =end
+
 
   # Specifies the header that your server uses for sending files
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
