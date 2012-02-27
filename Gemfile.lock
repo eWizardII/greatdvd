@@ -40,6 +40,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
+    commonjs (0.2.0)
+      therubyracer (~> 0.9.9)
     devise (1.5.0)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -69,6 +71,14 @@ GEM
     json (1.6.5)
     launchy (2.0.5)
       addressable (~> 2.2.6)
+    less (2.0.9)
+      commonjs (~> 0.2.0)
+      therubyracer (~> 0.9.9)
+    less-rails (2.1.6)
+      actionpack (>= 3.1)
+      less (~> 2.0.7)
+    less-rails-bootstrap (2.0.6)
+      less-rails (~> 2.1.0)
     libv8 (3.3.10.4)
     mail (2.3.0)
       i18n (>= 0.4.0)
@@ -147,6 +157,7 @@ DEPENDENCIES
   indextank
   jquery-rails
   json
+  less-rails-bootstrap
   nokogiri
   pg
   rails (= 3.1.2)
