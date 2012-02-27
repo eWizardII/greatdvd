@@ -6,7 +6,7 @@ gem 'indextank'
 gem 'devise'
 gem "less-rails-bootstrap"
 gem 'activeadmin'
-gem 'tlsmail'
+#gem 'tlsmail'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
