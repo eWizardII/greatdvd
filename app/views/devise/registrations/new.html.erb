@@ -60,11 +60,20 @@
 
   <div><%= f.text_field :lastname, :placeholder => 'Lastname' %></div>
  
-  <div><%= f.label :ticket %></div>
-  <div><%= f.radio_button :ticket, 'coach class', :checked => true %> <%= f.label :ticket, 'Coach Class' %></div>
-  <div><%= f.radio_button :ticket, 'business class', :checked => true %> <%= f.label :ticket, 'Business Class' %></div>
-  <div><%= f.radio_button :ticket, 'first class', :checked => true %> <%= f.label :ticket, 'First Class' %></div>
- 
+<div class="control-group">
+  <div class ="controls"><%= f.label :ticket %>
+  <label class="radio">
+  <%= f.radio_button :ticket, 'coach class', :checked => true %> <%= f.label :ticket, 'Coach Class' %>
+  </label>
+  <label class="radio">
+  <%= f.radio_button :ticket, 'business class'%> <%= f.label :ticket, 'Business Class' %>
+  </label>
+  <label class="radio">
+  <%= f.radio_button :ticket, 'first class' %> <%= f.label :ticket, 'First Class' %>
+  </label>
+  </div>
+          </div>
+
   <div><%= f.label :movies %></div>
   <div><%= f.select :movies, [['Select Genre','select genre'],['Action','action'],['Comedy','comedy'],['Drama','drama'],['Horror','horror'],['Mystery','mystery'],['Sci-Fi','sci-fi']] %></div>
 
