@@ -6,6 +6,7 @@ gem 'indextank'
 gem 'devise'
 gem "less-rails-bootstrap"
 #gem "less-rails-bootstrap-devise", :git => 'git://github.com/bigbento/less-rails-bootstrap-devise.git'
+gem 'activeadmin'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
  

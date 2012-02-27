@@ -18,7 +18,16 @@
             <!-- <li><a href="#about">About</a></li> -->
           </ul><%= form_tag movies_path, :class => 'navbar-search pull-left', :method => :get do %><%= text_field_tag :search, nil, :class => 'search-query', :placeholder => 'Search for Movie Title' %> <% end %>
 
-          <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+          <p class="navbar-text pull-right">
+
+            <% if user_signed_in? %>
+              Signed in as <%= current_user.email %>. Not you?
+              <%= link_to "Sign out", destroy_user_session_path %>
+            <% else %>
+              <%= link_to "Sign up", new_user_registration_path %> or
+              <%= link_to "Sign in", new_user_session_path %>
+            <% end %>
+          </p>
         </div><!--/.nav-collapse -->
       </div>
     </div>
