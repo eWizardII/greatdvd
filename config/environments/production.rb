@@ -25,25 +25,23 @@ Thegreatdvd::Application.configure do
 
   # Mailing stuff
 
-=begin
-  require 'tlsmail'       
-   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)   
-   ActionMailer::Base.delivery_method = :smtp   
-   ActionMailer::Base.perform_deliveries = true   
-   ActionMailer::Base.raise_delivery_errors = true   
-   ActionMailer::Base.smtp_settings = {   
-   :enable_starttls_auto => true,     
-   :address            => 'smtp.gmail.com',   
-   :port               => 587,   
-   :tls                  => true,   
-   :domain             => 'gmail.com',    
-   :authentication     => :plain,   
-   :user_name          => 'thegreatdvd12@gmail.com',   
-   :password           => 'thegreatdvd12' # for security reasons you can use a environment variable too. (ENV['INFO_MAIL_PASS'])   
-   }  
+  # require 'tlsmail'       
+  #  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)   
+  #  ActionMailer::Base.delivery_method = :smtp   
+  #  ActionMailer::Base.perform_deliveries = true   
+  #  ActionMailer::Base.raise_delivery_errors = true   
+  #  ActionMailer::Base.smtp_settings = {   
+  #  :enable_starttls_auto => true,     
+  #  :address            => 'smtp.gmail.com',   
+  #  :port               => 587,   
+  #  :tls                  => true,   
+  #  :domain             => 'gmail.com',    
+  #  :authentication     => :plain,   
+  #  :user_name          => 'thegreatdvd12@gmail.com',   
+  #  :password           => 'thegreatdvd12' # for security reasons you can use a environment variable too. (ENV['INFO_MAIL_PASS'])   
+  #  }  
 
-  config.action_mailer.default_url_options = { :host => 'gmail.com' }  =end
-
+  # config.action_mailer.default_url_options = { :host => 'gmail.com' }  
 
   # Specifies the header that your server uses for sending files
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
