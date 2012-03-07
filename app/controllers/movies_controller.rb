@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   	if cookies[:uid].nil? then
   		cookies.permanent.signed[:present] = "no"
   		cookies.permanent.signed[:uid] = "1746"
-  		redirect_to "http://www.google.com"
+  		redirect_to "/splash/welcome"
   	else
 		cookies.permanent.signed[:present] = "yes"
 	end

@@ -1,4 +1,6 @@
 Thegreatdvd::Application.routes.draw do
+  get "splash/welcome"
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config

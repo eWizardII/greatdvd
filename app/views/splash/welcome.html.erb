@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Great DVD</title>
+  <%= javascript_include_tag "application" %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="An ORF401 Project" />
+  <meta name="author" content="Solomon Abiola" />
+  <link href="../assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+  <link href="../assets/css/style.css" rel="stylesheet" type="text/css" />
+  <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+  <link href="../assets/javascripts/jquery.js" rel="javascript" type="text/javascript" />
+<!--   <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %> -->
+
+  <%= javascript_include_tag "rails.validations", "jquery" %>
+
+  <style type="text/css">
+/*<![CDATA[*/
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+  /*]]>*/
+  </style>
+
+</head>
+
+<body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></a>
+        <a class="brand" href="">The Great DVD</a>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+  <div class="hero-unit">
+        <h1>Welcome!</h1>
+        <p>This is the home page of The Great DVD! You are seeing this page because you are a new visitor. But don't worry your privacy is improtant to us and all tracking cookies used by our company are session signed. That's right! Privacy is our number one priority, check for your self in your console viewer on your favorite browser. Yea, see that?! Cool. Okay continue below to The Great DVD!</p>
+
+        <p><%= link_to "Continue »", "#{movies_path}", :class => "btn btn-primary btn-large"  %></p>
+      </div>
+  <div class="container">
+  <hr>
+  <footer class ="footer">
+    <p>Designed and developed by Solomon Abiola <a href="http://twitter.com/eWizard2_0" target ="_blank">@eWizard2_0</p>
+  </footer>
+  </div>
+</body>
+</html>
