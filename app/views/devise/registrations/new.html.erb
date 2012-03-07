@@ -53,7 +53,7 @@
 
 <h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),  :class => 'alert alert-error') do |f| %>
+<%= form_for(resource, :as => resource_name, :validate => true, :url => registration_path(resource_name),  :class => 'alert alert-error') do |f| %>
   <%= devise_error_messages! %>
 
   <div><%= f.text_field :firstname, :placeholder => 'Firstname' %><br />
