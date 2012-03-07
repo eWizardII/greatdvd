@@ -8,6 +8,7 @@ gem "less-rails-bootstrap"
 gem 'sass-rails',   '~> 3.1.5.rc.2'
 gem 'activeadmin'
 #gem 'tlsmail'
+gem 'client_side_validations'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
